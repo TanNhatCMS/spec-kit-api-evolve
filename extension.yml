@@ -1,0 +1,59 @@
+schema_version: "1.0"
+
+extension:
+  id: api-evolve
+  name: API Evolve
+  version: "1.0.0"
+  description: "Managed API contract evolution — breaking-change detection, semver enforcement, deprecation orchestration, and lifecycle gates across REST, GraphQL, and gRPC."
+  author: Quratulain-bilal
+  repository: https://github.com/Quratulain-bilal/spec-kit-api-evolve
+  homepage: https://github.com/Quratulain-bilal/spec-kit-api-evolve
+  license: MIT
+
+requires:
+  spec_kit: ">= 0.4.0"
+
+provides:
+  commands:
+    - speckit.api-evolve.orchestrate
+    - speckit.api-evolve.detect
+    - speckit.api-evolve.baseline
+    - speckit.api-evolve.diff
+    - speckit.api-evolve.classify
+    - speckit.api-evolve.bump
+    - speckit.api-evolve.deprecate
+    - speckit.api-evolve.deprecation-status
+    - speckit.api-evolve.gate
+    - speckit.api-evolve.changelog
+    - speckit.api-evolve.client-impact
+    - speckit.api-evolve.release
+  hooks:
+    - after_specify
+    - after_plan
+    - after_tasks
+    - before_implement
+    - after_implement
+
+hooks:
+  after_specify:
+    description: "Detect API contract files in the project and annotate the spec with the contract surface and current version."
+  after_plan:
+    description: "Capture a baseline snapshot of every detected contract before any plan-driven changes are implemented."
+  after_tasks:
+    description: "Inject [API-*] tasks for any planned contract change — diff, classify, bump, deprecate — with dispatch trailers."
+  before_implement:
+    description: "Gate. Refuse to start implementation if a breaking change is undeclared, version not bumped, or deprecation policy unmet."
+  after_implement:
+    description: "Re-run diff against the post-implementation contract, write the changelog entry, and surface client-impact report."
+
+tags:
+  - api
+  - contracts
+  - versioning
+  - openapi
+  - graphql
+  - grpc
+  - deprecation
+  - breaking-changes
+  - semver
+  - governance
