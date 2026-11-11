@@ -39,24 +39,27 @@ provides:
       file: "commands/speckit.api-evolve.client-impact.md"
     - name: "speckit.api-evolve.release"
       file: "commands/speckit.api-evolve.release.md"
-    
-  hooks:
-    - after_specify
-    - after_plan
-    - after_tasks
-    - before_implement
-    - after_implement
 
 hooks:
   after_specify:
+    command: "speckit.api-evolve.detect"
+    optional: true
     description: "Detect API contract files in the project and annotate the spec with the contract surface and current version."
   after_plan:
+    command: "speckit.api-evolve.baseline"
+    optional: true
     description: "Capture a baseline snapshot of every detected contract before any plan-driven changes are implemented."
   after_tasks:
+    command: "speckit.api-evolve.diff"
+    optional: true
     description: "Inject [API-*] tasks for any planned contract change — diff, classify, bump, deprecate — with dispatch trailers."
   before_implement:
+    command: "speckit.api-evolve.gate"
+    optional: true
     description: "Gate. Refuse to start implementation if a breaking change is undeclared, version not bumped, or deprecation policy unmet."
   after_implement:
+    command: "speckit.api-evolve.diff"
+    optional: true
     description: "Re-run diff against the post-implementation contract, write the changelog entry, and surface client-impact report."
 
 tags:
