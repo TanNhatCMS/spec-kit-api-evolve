@@ -15,18 +15,31 @@ requires:
 
 provides:
   commands:
-    - speckit.api-evolve.orchestrate
-    - speckit.api-evolve.detect
-    - speckit.api-evolve.baseline
-    - speckit.api-evolve.diff
-    - speckit.api-evolve.classify
-    - speckit.api-evolve.bump
-    - speckit.api-evolve.deprecate
-    - speckit.api-evolve.deprecation-status
-    - speckit.api-evolve.gate
-    - speckit.api-evolve.changelog
-    - speckit.api-evolve.client-impact
-    - speckit.api-evolve.release
+    - name: "speckit.api-evolve.orchestrate"
+      file: "commands/speckit.api-evolve.orchestrate.md"
+    - name: "speckit.api-evolve.detect"
+      file: "commands/speckit.api-evolve.detect.md"
+    - name: "speckit.api-evolve.baseline"
+      file: "commands/speckit.api-evolve.baseline.md"
+    - name: "speckit.api-evolve.diff"
+      file: "commands/speckit.api-evolve.diff.md"
+    - name: "speckit.api-evolve.classify"
+      file: "commands/speckit.api-evolve.classify.md"
+    - name: "speckit.api-evolve.bump"
+      file: "commands/speckit.api-evolve.bump.md"
+    - name: "speckit.api-evolve.deprecate"
+      file: "commands/speckit.api-evolve.deprecate.md"
+    - name: "speckit.api-evolve.deprecation-status"
+      file: "commands/speckit.api-evolve.deprecation-status.md"
+    - name: "speckit.api-evolve.gate"
+      file: "commands/speckit.api-evolve.gate.md"
+    - name: "speckit.api-evolve.changelog"
+      file: "commands/speckit.api-evolve.changelog.md"
+    - name: "speckit.api-evolve.client-impact"
+      file: "commands/speckit.api-evolve.client-impact.md"
+    - name: "speckit.api-evolve.release"
+      file: "commands/speckit.api-evolve.release.md"
+    
   hooks:
     - after_specify
     - after_plan
