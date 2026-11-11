@@ -3,7 +3,7 @@ schema_version: "1.0"
 extension:
   id: api-evolve
   name: API Evolve
-  version: "1.0.0"
+  version: "1.0.1"
   description: "Managed API contract evolution — breaking-change detection, semver enforcement, deprecation orchestration, and lifecycle gates across REST, GraphQL, and gRPC."
   author: Quratulain-bilal
   repository: https://github.com/Quratulain-bilal/spec-kit-api-evolve
@@ -11,7 +11,7 @@ extension:
   license: MIT
 
 requires:
-  spec_kit: ">= 0.4.0"
+  speckit_version: ">= 0.4.0"
 
 provides:
   commands:
